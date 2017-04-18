@@ -1,0 +1,21 @@
+
+
+plugin.tx_tokenizeddownloads {
+
+    secret = {$plugin.tx_tokenizeddownloads.secret}
+
+    ipcheck = {$plugin.tx_tokenizeddownloads.ipcheck}
+
+    tokentimeout = {$plugin.tx_tokenizeddownloads.tokentimeout}
+
+}
+
+lib.fluidContent {
+
+    templateRootPaths {
+
+        20 = EXT:tokenized_downloads/Resources/Private/Templates/
+
+    }
+}
+

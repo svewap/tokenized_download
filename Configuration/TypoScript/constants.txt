@@ -1,0 +1,13 @@
+
+plugin.tx_tokenizeddownloads {
+
+    # cat=plugin.tx_tokenizeddownloads; type=string; label=The secret
+    secret = the secret
+
+    # cat=plugin.tx_tokenizeddownloads; type=boolean; label=IP check
+    ipcheck =
+
+    # cat=plugin.tx_tokenizeddownloads; type=int+; label=Token timeout
+    tokentimeout = 5
+
+}

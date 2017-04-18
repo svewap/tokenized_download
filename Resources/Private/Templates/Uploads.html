@@ -1,0 +1,76 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:dt="http://typo3.org/ns/WapplerSystems/TokenizedDownloads/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="HeaderContentFooter" />
+<f:section name="content">
+
+	<f:if condition="{files}">
+		<ul class="ce-uploads list-group">
+			<f:for each="{files}" as="file" iteration="fileIterator">
+				<li class="list-group-item">
+					<f:if condition="{data.uploads_type} == 1">
+						<img src="{f:uri.resource(path: 'Icons/FileIcons/{file.extension}.gif', extensionName: 'frontend')}" alt="">
+					</f:if>
+
+					<f:if condition="{data.uploads_type} == 2">
+						<f:if condition="{f:uri.image(src: 'file:{f:if(condition: file.originalFile, then: \'file:{file.originalFile.uid}\', else: \'file:{file.uid}\')}')} != '/'">
+							<f:then>
+
+
+								<a href="{file.publicUrl}"{f:if(condition:data.target,then:' target="{data.target}"')}>
+									<f:media file="{file}" width="150" alt="{file.properties.alternative}" />
+								</a>
+							</f:then>
+							<f:else>
+								<img src="{f:uri.resource(path: 'Icons/FileIcons/{file.extension}.gif', extensionName: 'frontend')}" alt="">
+							</f:else>
+						</f:if>
+					</f:if>
+
+					<div>
+						<f:if condition="{file.name}">
+
+                            <f:if condition="{data.token_protected}">
+                                <f:then>
+
+									<dt:link.file file="{file}" target="{data.target}">
+
+										<a href="{href}" {f:if(condition:data.target,then:' target="{data.target}"')}>
+											<span class="ce-uploads-fileName">
+												{file.name}
+											</span>
+										</a>
+										<span class="ce-uploads-dateOfExpiry">
+											<f:translate extensionName="tokenized_downloads" key="date_of_expiry" /> <f:format.date format="{f:translate(extensionName:'tokenized_downloads',key:'date_of_expiry_format')}">{timelimit}</f:format.date>
+										</span>
+									</dt:link.file>
+
+                                </f:then>
+                                <f:else>
+                                    <a href="{file.publicUrl}"{f:if(condition:data.target,then:' target="{data.target}"')}>
+                                        <span class="ce-uploads-fileName badge">
+                                            {file.name}
+                                        </span>
+                                    </a>
+                                </f:else>
+                            </f:if>
+						</f:if>
+
+						<f:if condition="{file.properties.description}">
+							<f:if condition="{data.uploads_description}">
+								<span class="ce-uploads-description">
+									{file.properties.description}
+								</span>
+							</f:if>
+						</f:if>
+
+						<f:if condition="{data.filelink_size}">
+							<span class="ce-uploads-filesize badge">
+								<f:format.bytes value="{file.properties.size}" />
+							</span>
+						</f:if>
+					</div>
+				</li>
+			</f:for>
+		</ul>
+	</f:if>
+</f:section>
+</html>

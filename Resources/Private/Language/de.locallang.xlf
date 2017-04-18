@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" product-name="tokenized_downloads" date="2014-01-05T14:38:32+01:00">
+		<header/>
+		<body>
+			<trans-unit id="tt_content.token_protected">
+				<source>Token protected</source>
+				<target>Geschützt durch Token</target>
+			</trans-unit>
+			<trans-unit id="date_of_expiry" xml:space="preserve">
+                <source>Link valid till:</source>
+				<target>Link gültig bis:</target>
+            </trans-unit>
+			<trans-unit id="date" xml:space="preserve">
+                <source></source>
+				<target>Link gültig bis:</target>
+            </trans-unit>
+			<trans-unit id="date_of_expiry_format" xml:space="preserve">
+                <source>m.d.y g:i a</source>
+				<target>m.d.y G:i</target>
+            </trans-unit>
+		</body>
+	</file>
+</xliff>
